@@ -1,0 +1,15 @@
+server:
+  servlet:
+    context-path: /api
+  port: 9001
+
+spring:
+  application:
+    name: bus-hub-management
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9050/auth/realms/bus-hub
+          # to start the server without depending on the Auth Server
+          jwk-set-uri: http://localhost:9050/auth/realms/bus-hub/protocol/openid-connect/certs
