@@ -5,8 +5,8 @@
   <insert id="insert" useGeneratedKeys="true" keyColumn="id" keyProperty="entity.id">
     INSERT INTO usr.user (
       auth_id,
-      username
-      first_ame,
+      username,
+      first_name,
       middle_name,
       last_name,
       role
