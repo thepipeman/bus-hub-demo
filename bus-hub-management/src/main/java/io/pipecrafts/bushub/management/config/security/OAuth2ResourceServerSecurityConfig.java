@@ -1,6 +1,6 @@
-package com.example.bushub.management.config;
+package io.pipecrafts.bushub.management.config.security;
 
-import com.example.bushub.management.config.jwt.CustomJwtAuthConverter;
+import io.pipecrafts.bushub.management.config.jwt.CustomJwtAuthConverter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

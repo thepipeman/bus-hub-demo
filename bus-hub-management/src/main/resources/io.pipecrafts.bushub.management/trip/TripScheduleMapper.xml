@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.pipecrafts.bushub.management.admin.trip.schedule.TripScheduleMapper">
+
+  <insert id="insert" useGeneratedKeys="true" keyColumn="id" keyProperty="entity.id">
+    INSERT INTO trp.trip_schedule (
+      bus_type,
+      departure_time,
+      origin,
+      destination,
+      amount
+    ) VALUES (
+      #{entity.busType},
+      #{entity.departureTime},
+      #{entity.origin},
+      #{entity.destination},
+      #{entity.amount}
+    )
+  </insert>
+
+  <select id="selectCollection" resultType="TripSchedule">
+    SELECT
+      *
+    FROM trp.trip_schedule
+    ORDER BY departure_time
+  </select>
+</mapper>

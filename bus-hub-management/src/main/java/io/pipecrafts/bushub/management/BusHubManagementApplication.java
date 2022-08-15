@@ -1,4 +1,4 @@
-package com.example.bushub.management;
+package io.pipecrafts.bushub.management;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

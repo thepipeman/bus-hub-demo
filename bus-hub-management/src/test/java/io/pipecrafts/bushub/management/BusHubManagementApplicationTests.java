@@ -1,4 +1,4 @@
-package com.example.bushub.management;
+package io.pipecrafts.bushub.management;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

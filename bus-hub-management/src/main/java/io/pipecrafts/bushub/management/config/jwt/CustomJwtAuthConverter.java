@@ -1,4 +1,4 @@
-package com.example.bushub.management.config.jwt;
+package io.pipecrafts.bushub.management.config.jwt;
 
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.security.authentication.AbstractAuthenticationToken;

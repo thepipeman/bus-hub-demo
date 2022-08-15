@@ -6,6 +6,28 @@ server:
 spring:
   application:
     name: bus-hub-management
+
+  # datasource
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bh_demo_management
+    username: root
+    password: adminadmin
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      pool-name: bhm-pool
+
+
+  # Flyway settings
+  flyway:
+    enabled: true
+    locations: classpath:schema
+    validate-on-migrate: true
+    mixed: true
+    out-of-order: true
+    table: schema_version
+
+  # security
   security:
     oauth2:
       resourceserver:
