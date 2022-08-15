@@ -1,5 +1,6 @@
 package io.pipecrafts.bushub.management.admin.trip.schedule;
 
+import io.pipecrafts.bushub.management.common.security.UserJwtAuthentication;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,7 +18,7 @@ public class TripScheduleController {
 
   @ResponseStatus(HttpStatus.CREATED)
   @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-  public void createTripSchedule(@RequestBody @Valid TripSchedule tripSchedule) {
+  public void createTripSchedule(@RequestBody @Valid TripSchedule tripSchedule, UserJwtAuthentication authentication) {
     tripScheduleService.create(tripSchedule);
   }
 

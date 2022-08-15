@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="io.pipecrafts.bushub.management.common.user.UserMapper">
+
+  <insert id="insert" useGeneratedKeys="true" keyColumn="id" keyProperty="entity.id">
+    INSERT INTO usr.user (
+      auth_id,
+      username
+      first_ame,
+      middle_name,
+      last_name,
+      role
+    ) VALUES (
+      #{entity.authId},
+      #{entity.username},
+      #{entity.firstName},
+      #{entity.middleName},
+      #{entity.lastName},
+      #{entity.role} :: usr.USER_ROLE
+    )
+  </insert>
+
+
+  <select id="selectByUsernameAndRole" resultType="User">
+    SELECT *
+    FROM usr.user u
+    WHERE u.username = #{username}
+      AND u.role = #{role} :: usr.USER_ROLE
+  </select>
+
+  <select id="existsByUsernameAndRole" resultType="boolean">
+    SELECT EXISTS(
+      SELECT 1
+      FROM usr.user u
+      WHERE u.username = #{username}
+        AND u.role = #{role} :: usr.USER_ROLE
+    ) q
+  </select>
+
+</mapper>

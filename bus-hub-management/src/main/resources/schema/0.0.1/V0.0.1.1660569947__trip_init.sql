@@ -8,5 +8,7 @@ CREATE TABLE trp.trip_schedule (
   departure_time TIME      NOT NULL,
   origin         TEXT      NOT NULL,
   destination    TEXT      NOT NULL,
-  amount         DECIMAL   NOT NULL
+  amount         DECIMAL   NOT NULL,
+
+  PRIMARY KEY (id)
 );
