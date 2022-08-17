@@ -15,6 +15,7 @@ public class UserController {
 
   private final UserService userService;
 
+  // should be admin endpoint but for testing purposes, KISS
   @PreAuthorize("hasAuthority('SCOPE_mgmt')")
   @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
   public List<User> readUsers() {
