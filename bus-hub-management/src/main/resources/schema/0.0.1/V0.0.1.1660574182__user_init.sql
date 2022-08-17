@@ -19,7 +19,7 @@ CREATE TABLE usr.user (
   auth_id     TEXT          NOT NULL,
   username    TEXT          NOT NULL,
   first_name  TEXT          NOT NULL,
-  middle_name TEXT          NOT NULL,
+  middle_name TEXT          NULL,
   last_name   TEXT          NOT NULL,
   role        usr.USER_ROLE NOT NULL,
 

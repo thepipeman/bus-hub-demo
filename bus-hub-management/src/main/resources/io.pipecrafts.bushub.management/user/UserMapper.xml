@@ -28,6 +28,11 @@
       AND u.role = #{role} :: usr.USER_ROLE
   </select>
 
+  <select id="selectAll" resultType="User">
+    SELECT *
+    FROM usr.user u
+  </select>
+
   <select id="existsByUsernameAndRole" resultType="boolean">
     SELECT EXISTS(
       SELECT 1

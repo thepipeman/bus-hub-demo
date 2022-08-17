@@ -2,8 +2,10 @@ package io.pipecrafts.bushub.management.config.jwt;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
+import io.pipecrafts.bushub.management.common.security.AuthHandler;
 import io.pipecrafts.bushub.management.common.security.UserJwtAuthentication;
 import io.pipecrafts.bushub.management.common.user.UserRole;
+import lombok.RequiredArgsConstructor;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
@@ -16,9 +18,11 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Component
+@RequiredArgsConstructor
 public class CustomJwtAuthConverter implements Converter<Jwt, AbstractAuthenticationToken> {
 
   private final Converter<Jwt, Collection<GrantedAuthority>> jwtGrantedAuthoritiesConverter = new JwtGrantedAuthoritiesConverter();
+  private final AuthHandler authHandler;
 
   private static final String principalClaimName = "username";
   private static final String subjectClaim = "sub";
@@ -32,7 +36,17 @@ public class CustomJwtAuthConverter implements Converter<Jwt, AbstractAuthentica
     final UserRole role = getRole(jwt);
 
     // Authentication object can be customized through this.
-    return new UserJwtAuthentication(jwt, authorities, principalClaimValue, subClaimValue, role);
+    final UserJwtAuthentication authentication = new UserJwtAuthentication(
+      jwt,
+      authorities,
+      principalClaimValue,
+      subClaimValue,
+      role
+    );
+
+    // hack this should be handled with user registration
+    authHandler.createUserOrSkip(authentication);
+    return authentication;
   }
 
   private UserRole getRole(Jwt jwt) {
