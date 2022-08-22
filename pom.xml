@@ -6,6 +6,6 @@
   <artifactId>bus-hub-demo</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>bus-hub-demo</name>
-  <description>bus-hub-emo</description>
+  <description>bus-hub-demo</description>
   <packaging>pom</packaging>
 </project>
